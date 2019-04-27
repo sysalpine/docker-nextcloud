@@ -7,10 +7,14 @@
 
 ### nextcloud-fpm
 
-Use with docker compose files
+Based on the official nextcloud-fpm docker image (<https://github.com/nextcloud/docker/>) with some customizations.
 
 ```yml
 [...]
   environment:
     PHP_MEMORY_LIMIT: "1G"
 ```
+
+### nextcloud-web
+
+Nginx proxy image

@@ -1,4 +1,4 @@
-FROM nginx:1.15.12
+FROM nginx:1.16.0
 
 LABEL description="Nextcloud nginx web server" \
       maintainer="SysAlpine <mail@sysalpine.com>"
