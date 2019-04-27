@@ -56,10 +56,10 @@ RUN set -ex; \
     ; \
     \
 # pecl will claim success even if one install fails, so we need to perform each install separately
-    echo -e "\n" | pecl install APCu-5.1.17; \
-    echo -e "\n" | pecl install memcached-3.1.3; \
-    echo -e "\n" | pecl install redis-4.3.0; \
-    echo -e "\n" | pecl install imagick-3.4.3; \
+    echo "\n" | pecl install APCu-5.1.17; \
+    echo "\n" | pecl install memcached-3.1.3; \
+    echo "\n" | pecl install redis-4.3.0; \
+    echo "\n" | pecl install imagick-3.4.3; \
     \
     docker-php-ext-enable \
         apcu \
