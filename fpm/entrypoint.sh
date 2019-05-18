@@ -130,4 +130,6 @@ if expr "$1" : "apache" 1>/dev/null || [ "$1" = "php-fpm" ] || [ "${NEXTCLOUD_UP
     fi
 fi
 
+echo 'memory_limit=${PHP_MEMORY_LIMIT}' > /usr/local/etc/php/conf.d/memory-limit.ini
+
 exec "$@"
