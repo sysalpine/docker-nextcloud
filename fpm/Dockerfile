@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-stretch
+FROM php:7.3.6-fpm-stretch
 
 ENV NEXTCLOUD_VERSION=16.0.1 \
     PHP_MEMORY_LIMIT=512M
