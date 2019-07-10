@@ -1,6 +1,6 @@
 FROM php:7.3.6-fpm-stretch
 
-ENV NEXTCLOUD_VERSION=16.0.1 \
+ENV NEXTCLOUD_VERSION=16.0.3 \
     PHP_MEMORY_LIMIT=512M
 
 # entrypoint.sh and cron.sh dependencies
