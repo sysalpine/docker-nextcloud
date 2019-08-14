@@ -1,6 +1,6 @@
 FROM php:7.3.6-fpm-stretch
 
-ENV NEXTCLOUD_VERSION=16.0.3 \
+ENV NEXTCLOUD_VERSION=16.0.4 \
     PHP_MEMORY_LIMIT=512M
 
 # entrypoint.sh and cron.sh dependencies
@@ -58,8 +58,8 @@ RUN set -ex; \
 # pecl will claim success even if one install fails, so we need to perform each install separately
     echo "\n" | pecl install APCu-5.1.17; \
     echo "\n" | pecl install memcached-3.1.3; \
-    echo "\n" | pecl install redis-4.3.0; \
-    echo "\n" | pecl install imagick-3.4.3; \
+    echo "\n" | pecl install redis-5.0.2; \
+    echo "\n" | pecl install imagick-3.4.4; \
     \
     docker-php-ext-enable \
         apcu \
