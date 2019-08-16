@@ -93,13 +93,9 @@ RUN { \
         echo 'opcache.save_comments=1'; \
         echo 'opcache.revalidate_freq=1'; \
     } > /usr/local/etc/php/conf.d/opcache-recommended.ini; \
-    \
     echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini; \
-    \
     echo 'memory_limit=512M' > /usr/local/etc/php/conf.d/memory-limit.ini; \
-    \
     echo 'expose_php=Off' > /usr/local/etc/php/conf.d/security.ini; \
-    \
     mkdir /var/www/data; \
     chown -R www-data:root /var/www; \
     chmod -R g=u /var/www

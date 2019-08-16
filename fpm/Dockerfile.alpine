@@ -52,7 +52,7 @@ RUN set -ex; \
 # pecl will claim success even if one install fails, so we need to perform each install separately
     echo -e "\n" | pecl install APCu-5.1.17; \
     echo -e "\n" | pecl install memcached-3.1.3; \
-    echo -e "\n" | pecl install redis-5.2.0; \
+    echo -e "\n" | pecl install redis-5.0.2; \
     echo -e "\n" | pecl install imagick-3.4.4; \
     \
     docker-php-ext-enable \
@@ -82,13 +82,9 @@ RUN { \
         echo 'opcache.save_comments=1'; \
         echo 'opcache.revalidate_freq=1'; \
     } > /usr/local/etc/php/conf.d/opcache-recommended.ini; \
-    \
     echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini; \
-    \
     echo 'memory_limit=512M' > /usr/local/etc/php/conf.d/memory-limit.ini; \
-    \
     echo 'expose_php=Off' > /usr/local/etc/php/conf.d/security.ini; \
-    \
     mkdir /var/www/data; \
     chown -R www-data:root /var/www; \
     chmod -R g=u /var/www
