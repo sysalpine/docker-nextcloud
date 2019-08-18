@@ -35,6 +35,7 @@ RUN set -ex; \
         libmemcached-dev \
         libpng-dev \
         libpq-dev \
+        libsmbclient-dev \
         libxml2-dev \
         libmagickwand-dev \
         libzip-dev \
@@ -60,12 +61,13 @@ RUN set -ex; \
     echo "\n" | pecl install memcached-3.1.3; \
     echo "\n" | pecl install redis-5.0.2; \
     echo "\n" | pecl install imagick-3.4.4; \
-    \
+    echo "\n" | pecl install smbclient-1.0.0; \
     docker-php-ext-enable \
         apcu \
         memcached \
         redis \
         imagick \
+        smbclient \
     ; \
     \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
