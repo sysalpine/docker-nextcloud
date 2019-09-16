@@ -11,6 +11,7 @@ RUN set -ex; \
         rsync \
         bzip2 \
         busybox-static \
+        sudo \
     ; \
     rm -rf /var/lib/apt/lists/*; \
     \

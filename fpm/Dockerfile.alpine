@@ -8,6 +8,7 @@ RUN set -ex; \
     \
     apk add --no-cache \
         rsync \
+        sudo \
     ; \
     \
     rm /var/spool/cron/crontabs/root; \
