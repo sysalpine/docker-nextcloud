@@ -1,4 +1,4 @@
-FROM php:7.3.8-fpm-alpine3.9
+FROM php:7.3.9-fpm-alpine3.10
 
 ENV NEXTCLOUD_VERSION=16.0.4 \
     PHP_MEMORY_LIMIT=512M
@@ -28,7 +28,7 @@ RUN set -ex; \
         libmcrypt-dev \
         libpng-dev \
         libmemcached-dev \
-        libsmbclient-dev \
+        samba-dev \
         libxml2-dev \
         libzip-dev \
         openldap-dev \
