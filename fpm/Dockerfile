@@ -1,6 +1,6 @@
 FROM php:7.3.9-fpm-buster
 
-ENV NEXTCLOUD_VERSION=16.0.5 \
+ENV NEXTCLOUD_VERSION=17.0.0 \
     PHP_MEMORY_LIMIT=512M
 
 # entrypoint.sh and cron.sh dependencies
