@@ -1,0 +1,45 @@
+default:
+  image: docker:19.03.2
+  services:
+    - docker:dind
+
+build-web-master:
+  stage: build
+  before_script:
+    - echo -n ${CI_JOB_TOKEN} | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+  script:
+    - docker build --pull -t "${CI_REGISTRY_IMAGE}/web:latest" web/
+    - docker push "${CI_REGISTRY_IMAGE}/web:latest"
+  only:
+    - master
+
+build-fpm-master:
+  stage: build
+  before_script:
+    - echo -n ${CI_JOB_TOKEN} | docker login -u gitlab-ci-token --password-stdin ${CI_REGISTRY}
+  script:
+    - docker build --pull -t "${CI_REGISTRY_IMAGE}/fpm:latest" fpm/
+    - docker push "${CI_REGISTRY_IMAGE}/fpm:latest"
+  only:
+    - master
+
+build-web-tag:
+  stage: build
+  before_script:
+    - echo -n ${CI_JOB_TOKEN} | docker login -u gitlab-ci-token --password-stdin ${CI_REGISTRY}
+  script:
+    - docker build --pull -t "${CI_REGISTRY_IMAGE}/web:${CI_COMMIT_REF_NAME}" web/
+    - docker push "${CI_REGISTRY_IMAGE}/web:${CI_COMMIT_REF_NAME}"
+  only:
+    - tags
+
+build-fpm-tag:
+  stage: build
+  before_script:
+    - echo -n ${CI_JOB_TOKEN} | docker login -u gitlab-ci-token --password-stdin ${CI_REGISTRY}
+  script:
+    - docker build --pull -t "${CI_REGISTRY_IMAGE}/fpm:${CI_COMMIT_REF_NAME}" fpm/
+    - docker push "${CI_REGISTRY_IMAGE}/fpm:${CI_COMMIT_REF_NAME}-fpm"
+  only:
+    - tags
+
